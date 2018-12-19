@@ -37,6 +37,7 @@ class Customer(models.Model):
     secret = models.CharField(max_length=32,blank=True, null=True,validators=[RegexValidator(r'^[a-z0-9]{7}$','รูปแบบไม่ถูกต้อง')])
     user = models.OneToOneField(User, related_name='customer_user', on_delete=models.CASCADE)
 
+
 class CustomerUser(models.Model):
     user = models.OneToOneField(User, related_name='user', on_delete=models.CASCADE)
     customer = models.OneToOneField(Customer, related_name='customer', on_delete=models.CASCADE)
